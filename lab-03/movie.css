@@ -1,0 +1,166 @@
+/*
+Cortese Gabriele - 858372 - CorsoA - Tweb - 6CFU
+
+Consegna: Una volta modificato lo skeleton.html inserire il foglio di stile
+per poter inserire la parte grafica del sito.
+
+Contenuto: Sono stati usati sia delle classi, poichè più tag avevano delle stesse caratterstiche, che identificatori
+singoli per specificare caratterstiche per singoli div.
+*/
+
+body{
+  background-image: url(http://courses.cs.washington.edu/courses/cse190m/11sp/homework/2/background.png);
+  font-size: 8pt;
+  font-family: Verdana,Tahoma,sans-serif;
+  margin: 0px;
+  padding: 0px;
+}
+
+dt{
+  font-weight: bold;
+}
+
+dd{
+  padding-bottom: 10pt;
+}
+
+ul{
+  list-style-type: none;
+}
+
+
+
+#imgAlta{
+  height: 50px;
+}
+
+.comment{
+  font-size:8pt;
+  font-weight: bold;
+  background-color: #E8DC9B;
+  border-radius: 10px;
+  padding: 8px;
+  border-style: solid;
+  border-color: grey;
+  border-width: 2px;
+}
+
+.subCom{
+  font-style: italic;
+  overflow: hidden;
+  margin-bottom: 20pt;
+}
+
+.imgSub{
+  float: left;
+  margin-right: 5px;
+}
+
+.imgCom{
+  float:left;
+  margin-right: 5px;
+}
+
+p{
+  overflow: hidden;
+  font-style: italic;
+}
+
+#baseAlta{
+  width: 100%;
+  text-align: center;
+  background-image: url(http://courses.cs.washington.edu/courses/cse190m/11sp/homework/2/bannerbg.png);
+  background-repeat: repeat-x;
+}
+
+#nomeFilm{
+  font-size: 24pt;
+  text-align: center;
+  font-weight: bold;
+  font-family: Tahoma,Verdana,sans-serif;
+  text-shadow: 3px 3px #999999;
+}
+
+#container{
+  width: 800px;
+  border: solid 4px;
+  border-radius: 22px;
+  margin: auto;
+  overflow: hidden;
+}
+
+#leftSide{
+  /*background-color: yellow;*/
+  width: 550px;
+  float: left;
+  overflow: hidden;
+}
+
+#sezioneAlta{
+  width: 100%;
+  background-image: url(http://courses.cs.washington.edu/courses/cse190m/11sp/homework/2/rbg.png);
+  background-repeat: repeat-x;
+}
+
+#imgSezAlta{
+  vertical-align: top;
+  height: 83px;
+}
+
+#perc{
+  color:red;
+  font-size: 48pt;
+  font-weight: bold;
+}
+
+#commentSx{
+  width: 47%;
+  /*background-color: green;*/
+  float: left;
+  margin-right: 2%;
+  margin-left: 2%;
+  margin-top: 2%;
+
+}
+
+#commentDx{
+  width: 47%;
+  /*background-color: black;*/
+  float: left;
+  margin-top: 2%;
+}
+
+#righSide{
+  width: 250px;
+  background-color: #A2B964;
+  float: left;
+  font-family: Arial,sans-serif;
+}
+
+#rightList{
+  padding: 10pt;
+}
+
+#footer{
+  width: 100%;
+  background-color: #A2B964;
+  float: left;
+  text-align: center;
+  padding-top: 5px;
+}
+
+#css{
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  opacity: 0.5;
+}
+
+.desc{
+  margin: 0px;
+}
+
+
+.usr{
+  margin-bottom: 0px;
+}
