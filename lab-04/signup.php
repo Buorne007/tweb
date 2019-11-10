@@ -22,7 +22,7 @@
             <li class="item">
                 <label class="left"><strong>Favorite OS:</strong></label>
                 <select name="os">
-                    <option value="Linux">Linux</option>
+                    <option value="Linux" selected="selected">Linux</option>
                     <option value="Windows">Windows</option>
                     <option value="Mac OS X">Mac OS X</option>
                 </select>
@@ -30,7 +30,7 @@
             <li class="item">
                 <label class="left"><strong>Seeking age:</strong></label>
                 <input type="text" name="min" size="6" maxlength="2" placeholder="min"> to
-                <input type="text" name="max" size="6" maxlength="2" placeholder="max"> to
+                <input type="text" name="max" size="6" maxlength="2" placeholder="max">
             </li>
             <li class="item">
                 <input type="submit" value="Sign Up">
