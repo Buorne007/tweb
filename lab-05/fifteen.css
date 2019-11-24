@@ -1,0 +1,29 @@
+html{
+font-size: 14pt;
+}
+
+p,#w3c{
+    text-align: center;
+}
+
+
+#header{
+    text-align: center;
+}
+#puzzlearea{
+    width: 400px;
+    height: 400px;
+    /*background-color: red;*/
+    margin: 0 auto;
+}
+
+.sqr{
+    width: 90px;
+    height: 90px;
+    float: left;
+    border: solid 5px;
+    margin: 0px;
+    padding: 0px;
+    font-size: 40pt;
+    text-align: center;
+}
