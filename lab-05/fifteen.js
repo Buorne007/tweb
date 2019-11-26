@@ -1,55 +1,13 @@
 /*A pagina pronta si crea dinamicamente una matrice 4x4 di div, tutti quanti cliccabili.
-* Sono stati inseriti controlli sulla correttezza del gioco e sui vari effetti.*/
+* Compito dell'utente fare click sul btn shuffle la prima volta che accede alla pagina.
+* Se arriverà mai alla soliuzione un'animazione gli farà capire di aver finto.*/
 $(document).ready(function(){
-    //Vettore per evitare swap riga precedente
-    var vectIndex = [1,2,3,0,0,4,5,0,0,6,7,0,0,8,9,10];
     //Vettore sul quale fare shuffle per generare matrice casuale
     var myArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
 
-    shuffle(myArray);
     createMatrix(myArray);
     setbg();
-
-    //Settaggio degli eventi sui div della matrice
-    $( ".sqr" ).on({
-        mouseenter: function () {
-            if(chechNeighbors($(this)) == 1)
-                $(this).css("color", "red");
-        },
-        mouseleave: function () {
-            $(this).css("color", "black");
-        },
-        click: function () {
-
-            //Vettore per conoscere tutti i precedenti e i successivi
-            vectPrev = $(this).prevAll();
-            vectNext = $(this).nextAll();
-
-            //Reperimento ID dei div posizionati up,down,sz,dxå
-            sxId = $(vectPrev[0]).attr("id");
-            dxId = $(vectNext[0]).attr("id");
-            upId = $(vectPrev[3]).attr("id");
-            downId = $(vectNext[3]).attr("id");
-
-            //Controllo possibilità di movimento (escludendo vicino in riga superiore)
-            if(sxId == "num16" && (vectIndex[$("#"+sxId).index()] != vectIndex[$(this).index()])) {
-                swapsx(this, sxId);
-                checkResult();
-            }else if(dxId == "num16" && (vectIndex[$("#"+dxId).index()] != vectIndex[$(this).index()])){
-                swapdx(this,dxId);
-                checkResult();
-            }
-            else if(upId == "num16"){
-                swapup(this,upId);
-                checkResult();
-            }
-            else if(downId == "num16"){
-                swapdown(this,downId);
-                checkResult();
-            }
-        }
-    });
-
+    setEvents();
     //Definizione eventi per btn shuffle
     $("#shufflebutton").on({
         mouseenter: function () {
@@ -59,10 +17,10 @@ $(document).ready(function(){
 
         },
         click: function () {
-            location.reload();
-            //shuffle(myArray);
-            //createMatrix(myArray);
-            //animation();
+            shuffle(myArray);
+            createMatrix(myArray);
+            setEvents();
+            animation();
 
             //createRandomArray();
         }
@@ -149,6 +107,7 @@ function chechNeighbors(hovered){
         return 0;
 }
 
+//Setta l'animazione del puzzleArea
 function animation() {
     $("#puzzlearea").animate(
         { deg: 0 },
@@ -183,23 +142,75 @@ function createMatrix(arr){
 
 }
 
-//Dato un vettore, fa swap del contenuto delle celle in posizione i e j(randomica)
-function shuffle(a) {
-    for (let i = a.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [a[i], a[j]] = [a[j], a[i]];
+//Permette di creare una matrice in modo corretto e randomica
+function shuffle(arr){
+    cnt = Math.floor(Math.random() * 500 + 1);
+    var arrMvmt = [1,-1,4,-4];
+    indexEmpty = $("#num16").index();
+    alert(indexEmpty);
+    for(; cnt > 0; cnt--){
+        indexMvmt = Math.floor(Math.random() * 4);
+        if(indexEmpty+arrMvmt[indexMvmt] < 16 && indexEmpty+arrMvmt[indexMvmt] >= 0) {
+            //Index nuova posizione della cella bianca
+            newPosition = indexEmpty + arrMvmt[indexMvmt];
+            [arr[indexEmpty], arr[newPosition]] = [arr[newPosition], arr[indexEmpty]];
+            indexEmpty = newPosition;
+        }
     }
-    return a;
 }
 
 //Ritorna true se la disposizione di div della matrie è corretta
 function checkResult(){
     kids = $("#puzzlearea").find(".sqr");
     boost = true;
-    for (i = 0; i < kids.length && boost; i++){
-        if($(kids[i]).text() != i)
+    for (i = 0; i < kids.length-1 && boost; i++){
+        if(parseInt($(kids[i]).text()) != (i+1))
             boost = false;
     }
     if(boost)
         animation();
+}
+
+function setEvents(){
+    //Settaggio degli eventi sui div della matrice
+    $(".sqr").on({
+        mouseenter: function () {
+            if(chechNeighbors($(this)) == 1)
+                $(this).css("color", "red");
+        },
+        mouseleave: function () {
+            $(this).css("color", "black");
+        },
+        click: function () {
+            //Vettore per evitare swap riga precedente
+            var vectIndex = [1,2,3,0,0,4,5,0,0,6,7,0,0,8,9,10];
+
+            //Vettore per conoscere tutti i precedenti e i successivi
+            vectPrev = $(this).prevAll();
+            vectNext = $(this).nextAll();
+
+            //Reperimento ID dei div posizionati up,down,sz,dxå
+            sxId = $(vectPrev[0]).attr("id");
+            dxId = $(vectNext[0]).attr("id");
+            upId = $(vectPrev[3]).attr("id");
+            downId = $(vectNext[3]).attr("id");
+
+            //Controllo possibilità di movimento (escludendo vicino in riga superiore)
+            if(sxId == "num16" && (vectIndex[$("#"+sxId).index()] != vectIndex[$(this).index()])) {
+                swapsx(this, sxId);
+                checkResult();
+            }else if(dxId == "num16" && (vectIndex[$("#"+dxId).index()] != vectIndex[$(this).index()])){
+                swapdx(this,dxId);
+                checkResult();
+            }
+            else if(upId == "num16"){
+                swapup(this,upId);
+                checkResult();
+            }
+            else if(downId == "num16"){
+                swapdown(this,downId);
+                checkResult();
+            }
+        }
+    });
 }
