@@ -8,21 +8,17 @@ $(document).ready(function(){
     createMatrix(myArray);
     setbg();
     setEvents();
-    //Definizione eventi per btn shuffle
-    $("#shufflebutton").on({
-        mouseenter: function () {
-            //$(this).animate({width: "300px"},"slow");
-        },
-        mouseleave: function () {
 
-        },
+    //Definizione eventi per btn shuffle.
+    $("#shufflebutton").on({
         click: function () {
+            //Se è stata vinta la partita ricarico la pagina per poter ricreare correttamente la matrice
+            if($("#puzzlearea").text().localeCompare("Ottimo lavoro!") == 1)
+                location.reload();
             shuffle(myArray);
             createMatrix(myArray);
             setEvents();
             animation();
-
-            //createRandomArray();
         }
     });
 
@@ -101,6 +97,7 @@ function chechNeighbors(hovered){
     upId = $(vectPrev[3]).attr("id");
     downId = $(vectNext[3]).attr("id");
 
+
     if(sxId == "num16" || dxId == "num16" || upId == "num16" || downId == "num16"){
         return 1;
     }else
@@ -147,7 +144,6 @@ function shuffle(arr){
     cnt = Math.floor(Math.random() * 500 + 1);
     var arrMvmt = [1,-1,4,-4];
     indexEmpty = $("#num16").index();
-    alert(indexEmpty);
     for(; cnt > 0; cnt--){
         indexMvmt = Math.floor(Math.random() * 4);
         if(indexEmpty+arrMvmt[indexMvmt] < 16 && indexEmpty+arrMvmt[indexMvmt] >= 0) {
@@ -157,7 +153,19 @@ function shuffle(arr){
             indexEmpty = newPosition;
         }
     }
+
 }
+
+//Animazione in caso di vittoria. In ordine, faccio diminuore dimensione dei quadratini della matrice
+//Dopo un secondo svuoto contenuto container e scrivo dentro "Ottimo lavoro!"
+function animationEnd() {
+    $(".sqr").animate({"width": "0px", "height": "0px","font-size":"0em"}, 1000);
+    setTimeout(function(){
+        $("#puzzlearea").empty();
+        $("#puzzlearea").html("<h1 id='win'>Ottimo lavoro!!</h1>");
+    }, 1000);
+}
+
 
 //Ritorna true se la disposizione di div della matrie è corretta
 function checkResult(){
@@ -168,7 +176,7 @@ function checkResult(){
             boost = false;
     }
     if(boost)
-        animation();
+        animationEnd();
 }
 
 function setEvents(){

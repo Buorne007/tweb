@@ -13,8 +13,8 @@ p,#w3c{
 #puzzlearea{
     width: 400px;
     height: 400px;
-    /*background-color: red;*/
     margin: 0 auto;
+    text-align: center;
 }
 
 .sqr{
@@ -26,4 +26,8 @@ p,#w3c{
     padding: 0px;
     font-size: 40pt;
     text-align: center;
+}
+
+#win{
+    margin-top: 50%;
 }
