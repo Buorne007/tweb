@@ -1,6 +1,6 @@
 /*A pagina pronta si crea dinamicamente una matrice 4x4 di div, tutti quanti cliccabili.
 * Compito dell'utente fare click sul btn shuffle la prima volta che accede alla pagina.
-* Se arriverà mai alla soliuzione un'animazione gli farà capire di aver finto.*/
+* Se arriverà mai alla soluzione un'animazione gli farà capire di aver finto.*/
 $(document).ready(function(){
     //Vettore sul quale fare shuffle per generare matrice casuale
     var myArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
@@ -13,12 +13,14 @@ $(document).ready(function(){
     $("#shufflebutton").on({
         click: function () {
             //Se è stata vinta la partita ricarico la pagina per poter ricreare correttamente la matrice
-            if($("#puzzlearea").text().localeCompare("Ottimo lavoro!") == 1)
+            if($("#puzzlearea").text().localeCompare("Ottimo lavoro!") == 1){
                 location.reload();
-            shuffle(myArray);
-            createMatrix(myArray);
-            setEvents();
-            animation();
+            }else{
+                shuffle(myArray);
+                createMatrix(myArray);
+                setEvents();
+                animation();
+            }
         }
     });
 
@@ -86,10 +88,10 @@ function setbg(){
 }
 
 //Controlla se un determinato div ha vicino (su,giu,dx,sx) il div vuoto, ovvero se può muoversi in qualche direzione.
+//Metodo che server per poter colorare di rosso il div hoverd se ha vicino la cella vuota.
 function chechNeighbors(hovered){
     vectPrev = $(hovered).prevAll();
     vectNext = $(hovered).nextAll();
-
 
     //NB: devo modificare il DOM
     sxId = $(vectPrev[0]).attr("id");
@@ -97,14 +99,13 @@ function chechNeighbors(hovered){
     upId = $(vectPrev[3]).attr("id");
     downId = $(vectNext[3]).attr("id");
 
-
     if(sxId == "num16" || dxId == "num16" || upId == "num16" || downId == "num16"){
         return 1;
     }else
         return 0;
 }
 
-//Setta l'animazione del puzzleArea
+//Setta l'animazione del puzzleArea. Al click del btn shuffle esegue rotazione 360.
 function animation() {
     $("#puzzlearea").animate(
         { deg: 0 },
@@ -139,7 +140,8 @@ function createMatrix(arr){
 
 }
 
-//Permette di creare una matrice in modo corretto e randomica
+//Permette di creare una matrice in modo corretto e randomicamente partendo dalla matrice 4x4 corretta
+//con div vuoto nell'angolo di sinistra.
 function shuffle(arr){
     cnt = Math.floor(Math.random() * 500 + 1);
     var arrMvmt = [1,-1,4,-4];
@@ -156,7 +158,7 @@ function shuffle(arr){
 
 }
 
-//Animazione in caso di vittoria. In ordine, faccio diminuore dimensione dei quadratini della matrice
+//Animazione in caso di vittoria. In ordine, faccio diminuore dimensione dei quadratini della matrice.
 //Dopo un secondo svuoto contenuto container e scrivo dentro "Ottimo lavoro!"
 function animationEnd() {
     $(".sqr").animate({"width": "0px", "height": "0px","font-size":"0em"}, 1000);
