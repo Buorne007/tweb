@@ -1,0 +1,104 @@
+#infoDetNav{
+    margin-top: 80px;
+}
+
+#arrBack{
+    margin-left: 40px;
+    font-size: 2em;
+}
+
+#nomeProd{
+    text-align: center;
+    font-size: 2em;
+}
+
+#imgArt{
+    width: 400px;
+    height: 400px;
+}
+
+#detProd{
+    margin-top: 40px;
+}
+
+#infoProd{
+    text-align: left;
+    font-size: 1.5em;
+    padding-top: 40px;
+}
+
+#idCar,#usName{
+    display: none;
+}
+
+#confirmSpace{
+    margin-top: 40px;
+    text-align: center;
+    font-size: 1.5em;
+    color: red;
+}
+
+#msgError,#msgOk{
+    width: 100%;
+}
+
+#fromUsr{
+    font-weight: bold;
+    font-size: 1em;
+}
+
+#singleComment{
+    margin-bottom: 40px;
+    display: contents;
+}
+
+#commentTitle{
+    padding-left: 12px;
+    margin-bottom: 20px;
+}
+
+#errorSpace{
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1.5em;
+}
+
+.addBtn{
+    margin-top: 10px;
+    border: 1px solid;
+    border-color: #e1b428;
+    border-radius: 5px;
+    color: #000000a8;
+    background-color: #e1b42840;
+    margin-right: 40px;
+    box-shadow: 2px 2px darkgrey ;
+}
+
+.addBtn:hover{
+    background-color: #e2aa26;
+}
+
+/*Evidenziare abilitazione del btn*/
+.addBtn:not(:hover){
+    border-color: #e1b428;
+}
+
+.form-group{
+    margin-top: 50px;
+}
+
+span{
+    font-weight: bold;
+    padding-right: 20px;
+}
+
+h2 {
+    display: block;
+}
+
+/*Spazio per gli slot del footer dagli articoli*/
+@media screen and (max-width: 899px) {
+    .slot{
+        margin-top: 20px;
+    }
+}

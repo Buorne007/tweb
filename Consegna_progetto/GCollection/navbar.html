@@ -1,0 +1,35 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <img src="img/logo.png" width="30" height="30" alt="logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active" id="homeLbl">
+                <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active" id="findLbl">
+                <a class="nav-link" href="findWlist.php">Find Wishlist</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Products
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="http://localhost:8080/Tweb/GCcollection/index.php?cat=T-shirt">T-shirt</a>
+                    <a class="dropdown-item" href="http://localhost:8080/Tweb/GCcollection/index.php?cat=Caps">Caps</a>
+                    <a class="dropdown-item" href="http://localhost:8080/Tweb/GCcollection/index.php?cat=Pants">Pants</a>
+                </div>
+            </li>
+        </ul>
+        <a href="shoppingcart.php">
+            <img id="img_carrello" src="img/img_carrello.png" width="30" height="30" alt="link to shop">
+        </a>
+        <a href="./user/logout_script.php">
+            <img src="img/logout.png" width="30" height="30" alt="logout">
+        </a>
+    </div>
+</nav>

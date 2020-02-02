@@ -1,0 +1,109 @@
+h1{
+    color: #946b1b;
+}
+
+span{
+    box-shadow: 0px 2px #a9a9a9;
+}
+
+/*Evidenziare link Signin e Login per swap di form*/
+span:hover{
+    box-shadow: 0px 2px #a9a9a9;
+}
+
+span:not(:hover){
+    box-shadow: none;
+}
+
+a{
+    text-decoration: none;
+    color: #e2aa26;
+}
+
+a:hover {
+    color: #e1aa26;
+    text-decoration: none;
+}
+
+/*Evidenziare l'input sul quale si sta per scrivere*/
+input:not(:focus){
+    transform: none;
+    border: none;
+}
+
+button:hover{
+    background-color: #957833;
+}
+
+/*Evidenziare abilitazione del btn*/
+button:not(:hover){
+    background-color: #e1aa26;
+}
+
+#containerForm{
+    text-align: center;
+    width: 300px;
+    margin: auto;
+    margin-top: 150px;
+}
+
+#msgErr{
+    color:red;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#formLogin{
+    z-index: 11;
+}
+
+.in {
+    margin-top: 40px;
+    height: 62px;
+    width: 100%;
+    padding: 0 20px 0 38px;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #221735;
+    border: none;
+    box-shadow: 2px 2px #a9a9a9;
+    background-color: rgba(122, 122, 122, 0.1);
+    border-radius: 5px;
+    transition: transform .2s;
+}
+
+#divSwitch{
+    text-align: right;
+    margin-top: 40px;
+    color: #e1aa26;
+}
+
+.btnSubmit{
+    width: 100%;
+    background-color: rgba(225, 170, 38, 0.81);
+    height: 62px;
+    margin-top: 20px;
+    border-radius: 5px;
+    color: white;
+}
+
+/*Effetti specifici per device grandi*/
+@media screen and (min-width: 900px) {
+    input:focus {
+        transform: scale(1.2);
+        border: 1px solid;
+        border-color: #e1aa26;
+    }
+}
+
+/*Effetti specifici per device piccoli*/
+@media screen and (max-width: 899px) {
+    input:not(:focus){
+        border: none;
+    }
+
+    input:focus{
+        border: 1px solid;
+        border-color: #e1aa26;
+    }
+}

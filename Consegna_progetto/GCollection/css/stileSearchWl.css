@@ -1,0 +1,86 @@
+#containerSearch{
+    margin-top: 100px;
+}
+
+#titleSearch{
+    text-align: center;
+}
+
+.usrSpace{
+    text-align: center;
+}
+
+#usrnameFind{
+    width: 400px;
+    display: inline;
+    border-radius: 10px 10px;
+    margin-top: 40px;
+}
+
+#btnSearch{
+    margin-left: 20px;
+    border: 1px solid;
+    border-color: #e1b428;
+    border-radius: 5px;
+    color: #000000a8;
+    background-color: #e1b42840;
+}
+
+#btnSearch:hover{
+    background-color: #e1aa26;
+    border: none;
+}
+
+#errSpace {
+    margin-top: 40px;
+    color: red;
+    font-size: 1.2em;
+}
+
+#idCar{
+    display: none;
+}
+
+#noResSpace{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 2rem;
+}
+#containerItems {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#imgScSpace{
+    margin-top: 50px;
+    text-align: center;
+}
+
+#imgSc{
+    width: 200px;
+    height: 200px;
+}
+
+#istructions{
+    font-size: 1.5em;
+}
+
+#bt,#infos{
+    visibility: hidden;
+}
+
+#responseSpace{
+    color: green;
+}
+
+.infoItem{
+    display: block;
+}
+
+/*Effetti specifici per device piccoli*/
+@media screen and (max-width: 899px) {
+    #usrnameFind {
+        width: 200px;
+    }
+}

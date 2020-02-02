@@ -1,0 +1,99 @@
+/*--- index ---*/
+li,p{
+    font-family: 'Gayathri', sans-serif;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+#nameSoc{
+    font-family: 'Gayathri', sans-serif;
+    text-align: center;
+    margin-top: 100px;
+}
+
+#img_carrello{
+    margin-right: 40px;
+}
+
+#categoryName,#footer{
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-top: 40px;
+}
+
+#footer{
+    margin-bottom: 20px;
+    margin-top: 400px;
+
+}
+
+#container{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#nomeProd{
+    text-align: center;
+    color: #e1aa26;
+}
+
+#emailNews{
+    height: 40px;
+    border: 1px solid;
+    border-color: #e1b428;
+    border-radius: 5px;
+    padding: 10px;
+    display: block;
+}
+
+#btnSubEmail{
+    margin-top: 10px;
+    border: 1px solid;
+    border-color: #e1b428;
+    border-radius: 5px;
+    color: #000000a8;
+    background-color: #e1b42840;
+}
+
+#btnSubEmail:hover{
+    background-color: #e2aa26;
+}
+
+/*Evidenziare abilitazione del btn*/
+#btnSubEmail:not(:hover){
+    border-color: #e1b428;
+}
+
+#errorMsgNl{
+    margin-top: 10px;
+    color: red;
+}
+
+.prod{
+    width: 250px;
+    height: 250px;
+    float: left;
+    margin-left: 40px;
+    margin-top: 40px;
+    margin-right: 40px;
+    text-align: center;
+}
+
+.imgProd{
+    width: 200px;
+    height: 200px;
+}
+
+.paymts{
+    width: 60px;
+}
+
+/*Spazio per gli slot del footer dagli articoli*/
+@media screen and (max-width: 899px) {
+    .slot{
+        margin-top: 20px;
+    }
+}
